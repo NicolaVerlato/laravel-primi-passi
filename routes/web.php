@@ -13,6 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', function () {
+
+    $data = [
+        'name' => 'Olimpia Milano',
+        'city' => 'Milano',
+        'coach' => 'Ettore Messina',
+        'players' => ['Malcolm Delaney', 'Jerian Grant', 'Shavon Shields', 'Nicolò Melli', 'Kyle Hines']
+    ];
+
+    return view('home', $data);
+})->name('home');
+
+Route::get('/contatti', function () {
+
+    $data = [
+        'mail' => 'olimpiamilano@mail.com'
+    ];
+
+    return view('contatti', $data);
+})->name('contatti');
+
+Route::get('/calendario', function () {
+    return view('calendario');
+})->name('calendario');
+
+Route::get('/biglietti', function () {
+    return view('biglietti');
+})->name('biglietti');
